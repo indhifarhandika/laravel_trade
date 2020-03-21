@@ -1,0 +1,26 @@
+CREATE TABLE `latoken_raw` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `coinname` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `lastprice` decimal(22,10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `calculator`
+ADD `latoken_btc` decimal(22,10) NOT NULL DEFAULT '0.0000000000',
+ADD `latoken_eth` decimal(22,10) NOT NULL DEFAULT '0.0000000000' AFTER `latoken_btc`,
+ADD `latoken_usdt` decimal(22,10) NOT NULL DEFAULT '0.0000000000' AFTER `latoken_eth`;
+
+
+INSERT INTO `list_exchanger_market` (`market_name`)
+VALUES ('latoken_btc');
+
+
+INSERT INTO `list_exchanger_market` (`market_name`)
+VALUES ('latoken_eth');
+
+
+INSERT INTO `list_exchanger_market` (`market_name`)
+VALUES ('latoken_usdt');
+
+
